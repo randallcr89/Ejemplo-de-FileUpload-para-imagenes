@@ -1,0 +1,27 @@
+<div class="card flex justify-content-center">
+  <p-toast></p-toast>
+  <p-fileUpload
+    name="demo[]"
+    url="https://www.primefaces.org/cdn/api/upload.php"
+    (onUpload)="onUpload($event)"
+    [multiple]="false"
+    previewWidth="150"
+    chooseLabel="Agregar Imagen"
+    cancelLabel="Quitar Imagen"
+    accept="image/png, image/jpeg"
+    maxFileSize="1000000"
+    showUploadButton=""
+    showCancelButton="true"
+    invalidFileSizeMessageSummary="El tamaño de la imágen es inválido. Favor escoja otra imágen"
+    invalidFileSizeMessageDetail="Máximo de tamaño de la imágen 1MB"
+    invalidFileTypeMessageSummary="Formato de archivo inválido. Favor escoja otro archivo"
+    invalidFileTypeMessageDetail="Los formatos permitidos son los siguientes: jpeg, png"
+  >
+    <ng-template let-file pTemplate="file">
+      <div class="ui-fileupload-row">
+        <div><img [src]="file.objectURL" width="400" /></div>
+        <div></div>
+      </div>
+    </ng-template>
+  </p-fileUpload>
+</div>
